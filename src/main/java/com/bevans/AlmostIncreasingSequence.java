@@ -23,7 +23,8 @@ public class AlmostIncreasingSequence {
         var intList = Arrays.stream(sequence).boxed().toList();
         var increasingSeq = false;
 
-        for (int i = 0; i <= sequence.length - 1; i++) {
+        // for (int i = 0; i <= sequence.length - 1; i++) {
+        for (int i = sequence.length - 1; i >= 0; i--) {
             increasingSeq = allInSequence(intList, i);
 
             if (increasingSeq) {
@@ -35,25 +36,11 @@ public class AlmostIncreasingSequence {
     }
 
     boolean allInSequence(List<Integer> intList, int removeIndex) {
-        System.out.println("---\n");
-
         var testList = new ArrayList<>(intList);
         testList.remove(removeIndex);
 
-        System.out.println("testList: " + testList);
-
-//        for (int i = testList.size() - 1; i > 0; i--) {
-//            var last = testList.get(i);
-//            var prev = testList.get(i - 1);
-//
-//            System.out.println(last + " <= " + prev);
-//            System.out.println();
-//
-//            if (last <= prev) {
-//                System.out.println("           not in sequence");
-//                return false;
-//            }
-//        }
+        System.out.println("---\n");
+        System.out.println(testList);
 
         for (int i = 0; i < testList.size() - 1; i++) {
             var current = testList.get(i);
@@ -68,10 +55,9 @@ public class AlmostIncreasingSequence {
             }
         }
 
-        System.out.println("           in sequence");
+        System.out.println(" in sequence");
+// sequence: [1, 2, 3, 4, 5, 3, 5, 6]
 
         return true;
     }
-
-
 }
